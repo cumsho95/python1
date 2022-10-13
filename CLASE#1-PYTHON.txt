@@ -1,0 +1,349 @@
+print('''1.Representacion de varios metodos utilizados en una lista.
+
+Primero creamos una lista, luego utlilizaremos los siguientes metodos:\n
+count -> Muestra el número de veces que aparece un elemento en la lista.
+
+index -> Muestra el lugar en el cual esta ubicado el objeto.
+
+reverse -> Muestra los elementos invertidos.
+
+append -> Permite agregar un elemento al final de la lista.
+
+remove ->Permite quitar un elemento de a lista especificando cual es.
+
+pop ->Permite quitar un valor especifico de la lista con su posicion en la misma.
+
+clear -> permite borrar la lista.
+
+todos los metodos seran aplicados a la misma lista.\n''')
+
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+print('Resultado de count = ')
+print(letters.count('k'))
+
+print('-----------------------------------------------')
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+print('Resultado de index = ')
+print(letters.index('d'))
+
+print('-----------------------------------------------')
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+print('Resultado de reverse = ')
+print(letters.reverse(), letters)
+
+print('-----------------------------------------------')
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+print('Resultado de append = ')
+print(letters.append('h'), letters)
+
+print('-----------------------------------------------')
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+print('Resultado de remove = ')
+print(letters.remove('c'), letters)
+
+print('-----------------------------------------------')
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+print('Resultado de pop = ')
+print(letters.pop(1), letters)
+print('-----------------------------------------------\n')
+
+print('''1.1 Utilizar la lista como pilas.
+
+Esto hace que el ultimo elemento añadido a la lista sea el primer elemento retirado (Entrada por salida).\n'''
+      )
+
+letters2 = ['a', 'b', 'c', 'd', 'e']
+letters2.append('f')
+letters2.append('g')
+print(letters2)
+print('-----------------------------------------------')
+print('Elemento eliminado = ')
+print(letters2.pop())
+print(letters2)
+print('-----------------------------------------------')
+print('Elementos eliminados en total = ')
+print(letters2.pop())
+print(letters2.pop())
+print(letters2)
+print('-----------------------------------------------\n')
+
+print('''1.2 Usar las listas como colas.
+
+Esto se utiliza con collections.deque, es el mismo funcionamientos de las pilas solo que en este caso podemos eliminar los elementos añadidos de ambos lados no solo de uno.\n'''
+      )
+
+from collections import deque
+
+letters3 = deque(['a', 'b', 'c'])
+letters3.append('d')
+letters3.append('e')
+print(letters3)
+print('\nEliminamos los dos elementos de la izquierda de la lista que son = ')
+print(letters3.popleft())
+print(letters3.popleft())
+print(letters3)
+
+print('-----------------------------------------------\n')
+
+print('''1.3 Compresion de las listas.
+
+Se utiliza para imprimir varias listas donde se encuentre el resultado de alguna operacion realizada en otra lista.\n'''
+      )
+
+letters4 = []
+for x in range(10):
+  letters4.append(x * 2)
+
+print(letters4)
+#Se realizo un ciclo el cual conformaba la lista, en este solamente decalramos x la cual se multiplica consecutivamente hasta que llegue a 10 elementos, y luego imprime los elementos en la lista definitiva.
+
+print('\nAhora vamos a crear una lista más concisa y legible.\n')
+
+print([(x, y) for x in [7, 8, 9] for y in [4, 8, 6] if x != y])
+#Lo que se hizo fue declarar (x,y) luego le declaramos a cada uno un conjunto de números y le digimos que si (x) es diferente o igual a (y) imprima cada combinación con esta condición.
+print('-----------------------------------------------\n')
+
+print('''\n1.4 Listas por comprension anidadas.
+
+Se pueden utilizar para cualquier expresion arbitaria.
+
+Vamos a crear una matriz comprendida por varias listas.\n''')
+
+letters4 = [
+  ['a', 'b', 'c', 'd'],
+  ['e', 'f', 'g', 'h'],
+  ['i', 'j', 'k', 'l'],
+  ['m', 'n', 'o', 'p'],
+]
+print(letters4, '\n')
+
+print(
+  'Ahora vamos a tranponer las filas y las columnas, cabe recalcar que esta es una de las maneras en las que se puede hacer pero existen otras formas\n'
+)
+
+print([[row[i] for row in letters4] for i in range(3)])
+
+print('\n Otra manera es: \n')
+
+print(list(zip(*letters4)))
+
+print('-----------------------------------------------\n')
+
+print('''2. La instrucción (del).
+
+Esta tiene varios usos,puede retornar valores a una lista, quitar secciones completas, eliminar variables y eliminar listas completas.
+
+Vamos a eliminar un elemento de la lista, con su posición.\n''')
+
+letters5 = ['a', 'b', 'c', 'd', 'e', 'f']
+print(letters5, '\n')
+del letters5[2]
+print(letters5)
+
+print('\nAhora vamos a eliminar dos elementos.\n')
+
+letters5 = ['a', 'b', 'c', 'd', 'e', 'f']
+print(letters5, '\n')
+del letters5[2:4]
+print(letters5)
+
+print('\nEliminaremos todos los elementos.\n')
+
+letters5 = ['a', 'b', 'c', 'd', 'e', 'f']
+print(letters5, '\n')
+del letters5[:]
+print(letters5)
+
+print('''\n Y tambien podemos eliminar la variable (lista).
+
+Con esta operación:
+del letters5''')
+
+print('-----------------------------------------------\n')
+
+print('''3. Tuplas y Secuencias.
+
+Hace referencia a varios valores separados por comas, y las salidas de las tuplas siempre estan encerradas en un parentesis.\n'''
+      )
+
+letters6 = 1, 2, 3, 'a'
+print(letters6)
+print('\n')
+letters7 = letters6, 4, 5, 6, 'b'
+print(letters7)
+
+print('-----------------------------------------------\n')
+
+print('''4. Conjuntos.
+
+Hace referencia a una coleccion no ordenada y sin elementos repetidos.
+
+Por ejemplo:\n''')
+
+letters8 = {'a', 'a', 'b', 'c', 'c', 'd', 'e', 'e'}
+print(letters8)
+#Como podemos ver los valores repetidos no se imprimen
+
+print(
+  '''Si queremos saber si algun elemento esta en el conjunto, basta con poner esta operacion: 
+
+print('a' in letters8)
+
+Con el elemento que queremos consultar.
+
+Si está imprime:True 
+sino:False\n''')
+
+print('a' in letters8)
+
+print('''\nAhora vamos a imprimir la palabra colombia.\n''')
+
+one = set('Colombia')
+print(one)
+
+print(
+  '''\nY como podemos ver no imprime las letras que se repiten y su orden es aleatorio.
+
+Si queremos poner alguna restriccion con respecto a las letras que queremos que aparezcan utilizamos:
+
+Two= {x for x in 'Colombia' if x not in 'oia'}\n''')
+
+Two = {x for x in 'Colombia' if x not in 'oia'}
+
+print(Two)
+
+print('\nEntonces quitamos las letras (oia) y su impresión es aleatoria.\n')
+
+print('-----------------------------------------------\n')
+
+print('''5. Diccionarios.
+
+Estos se indexan con claves las cuales pueden ser cualquier inmutable como: las cadenas los números, etc...
+
+En pocas palabras son como un conjunto de pares clave, con la condicion de que estas claves sean únicas
+
+Un ejemplo de Diccionario:\n''')
+
+three = {'a': 1, 'b': 2}
+three['c'] = 3
+print(three, '\n')
+
+#Aquí estamos eliminando (b) y agregamos (b) entonces lo que sucedio fue que (c) ocupo el lugar de (b) entonces los valores solo se corrieron.
+del three['b']
+three['d'] = 3
+print(three, '\n')
+
+print(list(three), '\n')
+
+print(
+  '\nTambien podemos crear directamente un diccionario desde las secuencias de pares clave-valor de esta forma: \n'
+)
+
+print(dict([('a', 1), ('b', 2), ('c', 3)]))
+
+print(
+  'Si tenemos claves de cadenas simples podemos especificar los pares utilizando argumentos de la siguiente manera: \n'
+)
+
+print(dict(a=1, b=2, c=3))
+
+print('-----------------------------------------------\n')
+
+print('''6. Tecnicas de iteración.
+
+Cuando realizamos iteraciones con los diccionarios podemos obtener la clave y su valor, haciendo uso de:
+(items()), como vemos en el ejemplo:\n''')
+
+four = {'a': 'HELLO', 'b': 'WORLD'}
+for a, b in four.items():
+  print(a, b)
+
+print(
+  '\nSi iteramos sobre una secuencia lo que podemos obtener será la posicion y el valor usando (enumerate())\n'
+)
+
+for a, b in enumerate(['uno', 'dos', 'tres']):
+  print(a, b)
+
+print(
+  '\nPor oro lado si queremos iterar sobre dos o más secunacias a la vez podriamos emparejar los valores con: (zip()) de la siguiente manera.\n'
+)
+
+primero = ['Dulce', 'Chocolate', 'Pastel']
+segundo = ['Sí', 'No', 'No lo he probado']
+for a, b in zip(primero, segundo):
+  print('Te gusta el {0}?. A mí ¿?_ {1}.'.format(a, b))
+#Lo que estamos haciendo es agignarler unas palabras especificas en unos lugares específicos y a estas palabras les damos unas codiciones con el ciclo (for) para que se repita las veces que necesitemos (iteraciones) y así cada una se combina dependiendo de como queramos.
+
+print(
+  '\nSi queremos iterar en un orden inverso especifico lo que debemos hacer primero crear la secuencia y luego utilizar el (reversed()) como podemos ver a continuación:\n '
+)
+
+for i in reversed(range(2, 20, 2)):
+  print(i)
+#Entonces solo generamos un ciclo que contara desde el (2) hasta el (20) llendo de 2 en 2, acompañado con la función (reversed).
+
+print(
+  '\nTambien podemos ordenar una secuencia de tal forma que nos cree una nueva, pero dejando la original intacta y esto con la función (sorted()).\n'
+)
+
+five = [
+  'e',
+  'd',
+  'a',
+  'c',
+  'b',
+  'd',
+  'a',
+  'c',
+]
+for i in sorted(five):
+  print(i)
+
+print(
+  '\nSi queremos que los elementos duplicados se eliminen basta con utilizar la función (set()) combinada con (sorted()).\n'
+)
+
+five = [
+  'e',
+  'd',
+  'a',
+  'c',
+  'b',
+  'd',
+  'a',
+  'c',
+]
+for i in sorted(set(five)):
+  print(i)
+
+print('-----------------------------------------------\n')
+
+print('''7. Condiciones.
+
+Existen varios tipo de condiciones como (while, if, etc... y  tambieb las comparaciones como: is, is not y demás, y lo importante de estas comparaciones es que pueden encadenarse (combinarse)), Además podemos asignar una comparación u otra expresión a una variable.
+
+Por ejemplo:\n''')
+
+a, b, c = '', 'Hola', 'Hola_x2'
+non_null = a or b or c
+print(non_null)
+
+print('\n-----------------------------------------------\n')
+
+print('''8. Comparación de secuencias y tipos,
+
+Es posible comparar las secunacias con otros objetos de mismo tipo de secuencias osea: Primero se comparan los dos primeros items y si estos son diferentes automaticamente se puede determinar el resultado de esta comparación pero si son iguales entonces se comparan los dos siguientes items y así consecutivamente.
+
+A continuación vamos a ver dos ejemplos de comparación de secuencias del mismo tipo.\n'''
+      )
+
+print((2, 3, 4) < (2, 3, 5), '\n')
+
+print((10, 11, 12, 13) < (10, 11, 13), '\n')
